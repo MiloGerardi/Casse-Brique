@@ -6,7 +6,7 @@ class Barre:
         self.taille = Vector2(50, 5)
         self.couleur = (255,255,255)
         self.position = Vector2(500,500)
-        self.vitesse = 1
+        self.vitesse = 5
 
     def afficher(self, core):
         pygame.draw.rect(core.screen, self.couleur, (self.position, self.taille), 0, 10)
@@ -17,10 +17,10 @@ class Barre:
         if direction<0 :
             self.position.x -= self.vitesse
 
-    def vitesse(self, v):
+    def setVitesse(self, v):
         self.vitesse = v
 
-    def position(self, pos):
+    def setPosition(self, pos):
         self.position = pos
 
     def getVitesse(self):
@@ -28,3 +28,6 @@ class Barre:
 
     def getPosition(self):
         return self.position
+
+    def getTaille(self):
+        return self.taille

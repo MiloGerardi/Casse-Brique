@@ -42,3 +42,12 @@ class Bille:
 
     def afficher(self, core):
         pygame.draw.circle(core.screen, self.couleur, self.position, self.rayon)
+
+    def getVitesse(self):
+        return self.vitesse
+
+    def getPosition(self):
+        return self.position
+
+    def getRayon(self):
+        return self.rayon

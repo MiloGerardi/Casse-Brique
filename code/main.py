@@ -6,9 +6,9 @@ from brique import Brique
 from barre import  Barre
 from bille import Bille
 
-b = Brique()
-ba = Barre()
-bi = Bille()
+brique = Brique()
+barre = Barre()
+bille = Bille()
 def setup():
     f = Fenetre()
     f.defTaille(800,800)
@@ -17,16 +17,27 @@ def setup():
     f.set(core)
     core.cleanScreen()
     core.printMemory()
-    bi.setPosition(Vector2(100,100))
-    bi.setVitesse(Vector2(1, 1))
-    bi.setAcceleration(Vector2(0, 2))
+    bille.setPosition(Vector2(100,100))
+    bille.setVitesse(Vector2(1, 1))
+    bille.setAcceleration(Vector2(0, 2))
 
 
 def run():
     core.cleanScreen()
-    b.afficher(core)
-    ba.afficher(core)
-    bi.afficher(core)
-    bi.deplacer(core)
+    if core.getkeyPressValue() == 1073741903 :
+        barre.deplacer(1)
+    if core.getkeyPressValue() == 1073741904:
+        barre.deplacer(-1)
+    if (bille.getPosition().x>barre.getPosition().x-bille.getRayon()) and (bille.getPosition().x<barre.getPosition().x + barre.getTaille().x+bille.getRayon()):
+        print("x - ok")
+        if bille.getPosition().y >= barre.getPosition().y - bille.getRayon():
+            print("y - ok")
+            bille.setVitesse(bille.getVitesse().rotate(180 + 2 * bille.getVitesse().angle_to((0, 1))))
+    brique.afficher(core)
+    barre.afficher(core)
+    bille.deplacer(core)
+    bille.afficher(core)
+    #droite 1073741903
+    #gauche 1073741904
 
 core.main(setup, run)
