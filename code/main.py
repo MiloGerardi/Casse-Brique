@@ -27,6 +27,6 @@ def run():
     b.afficher(core)
     ba.afficher(core)
     bi.afficher(core)
-    bi.deplacer()
+    bi.deplacer(core)
 
 core.main(setup, run)

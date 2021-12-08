@@ -29,7 +29,14 @@ class Bille:
     def setPosition(self, pos):
         self.position = pos
 
-    def deplacer(self):
+    def deplacer(self, core):
+
+        if self.position.x >= core.WINDOW_SIZE[0] or self.position.x <= 0:
+            self.vitesse = self.vitesse.rotate(180 + 2 * self.vitesse.angle_to((1, 0)))
+
+        if self.position.y >= core.WINDOW_SIZE[1] or self.position.y <= 0:
+            self.vitesse = self.vitesse.rotate(180 + 2 * self.vitesse.angle_to((0, 1)))
+
         self.position += self.vitesse
         self.acceleration = Vector2(0,0)
 
