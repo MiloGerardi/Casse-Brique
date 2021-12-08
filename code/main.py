@@ -25,9 +25,9 @@ def setup():
 def run():
     core.cleanScreen()
     if core.getkeyPressValue() == 1073741903 :
-        barre.deplacer(1)
+        barre.deplacer(1, core)
     if core.getkeyPressValue() == 1073741904:
-        barre.deplacer(-1)
+        barre.deplacer(-1, core)
     if (bille.getPosition().x>barre.getPosition().x-bille.getRayon()) and (bille.getPosition().x<barre.getPosition().x + barre.getTaille().x+bille.getRayon()):
         print("x - ok")
         if bille.getPosition().y >= barre.getPosition().y - bille.getRayon():

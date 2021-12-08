@@ -11,10 +11,10 @@ class Barre:
     def afficher(self, core):
         pygame.draw.rect(core.screen, self.couleur, (self.position, self.taille), 0, 10)
 
-    def deplacer(self, direction):
-        if direction>0 :
+    def deplacer(self, direction, core):
+        if direction>0  and self.position.x < core.WINDOW_SIZE[0]-self.taille.x:
             self.position.x += self.vitesse
-        if direction<0 :
+        if direction<0 and self.position.x > 0:
             self.position.x -= self.vitesse
 
     def setVitesse(self, v):
