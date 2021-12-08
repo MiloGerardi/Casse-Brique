@@ -41,7 +41,7 @@ class Bille:
         self.acceleration = Vector2(0,0)
 
     def afficher(self, core):
-        pygame.draw.circle(core.screen, self.couleur, self.position, self.rayon)
+        pygame.draw.circle(core.screen, self.couleur, (int(self.position.x), int(self.position.y)), self.rayon)
 
     def getVitesse(self):
         return self.vitesse
