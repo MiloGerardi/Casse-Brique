@@ -1,20 +1,21 @@
 import pygame
 from pygame import Vector2
 
+
 class Barre:
     def __init__(self):
         self.taille = Vector2(50, 5)
-        self.couleur = (255,255,255)
-        self.position = Vector2(0,0)
+        self.couleur = (255, 255, 255)
+        self.position = Vector2(0, 0)
         self.vitesse = 5
 
     def afficher(self, core):
         pygame.draw.rect(core.screen, self.couleur, (self.position, self.taille), 5)
 
     def deplacer(self, direction, core):
-        if direction>0  and self.position.x < core.WINDOW_SIZE[0]-self.taille.x:
+        if direction > 0 and self.position.x < core.WINDOW_SIZE[0] - self.taille.x:
             self.position.x += self.vitesse
-        if direction<0 and self.position.x > 0:
+        if direction < 0 and self.position.x > 0:
             self.position.x -= self.vitesse
 
     def setVitesse(self, v):
