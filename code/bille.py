@@ -18,6 +18,7 @@ class Bille:
         self.force = Vector2(0,0)
         self.nom = ""
         self.score = 0
+        self.prevPos = Vector2(0,0)
 
     def setVitesse(self, v):
         self.vitesse = v
@@ -30,7 +31,7 @@ class Bille:
         self.position = pos
 
     def deplacer(self, core):
-
+        self.prevPos = self.position
         if self.position.x >= core.WINDOW_SIZE[0] or self.position.x <= 0:
             self.vitesse = self.vitesse.rotate(180 + 2 * self.vitesse.angle_to((1, 0)))
 
@@ -39,6 +40,7 @@ class Bille:
 
         self.position += self.vitesse
         self.acceleration = Vector2(0,0)
+        return self.prevPos
 
     def afficher(self, core):
         pygame.draw.circle(core.screen, self.couleur, (int(self.position.x), int(self.position.y)), self.rayon)
